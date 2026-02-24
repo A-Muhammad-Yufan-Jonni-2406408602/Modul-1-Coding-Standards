@@ -18,6 +18,9 @@ jobs:
           curl -fsSL https://cli.koyeb.com/install.sh | sh
           echo "$HOME/.koyeb/bin" >> $GITHUB_PATH
 
+      - name: Verify installation
+        run: koyeb version
+
       - name: Login to Koyeb
         run: koyeb login --token ${{ secrets.KOYEB_API_TOKEN }}
 
