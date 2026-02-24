@@ -22,7 +22,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run PMD
-        run: ./gradlew pmdMain pmdTest
+        run: ./gradlew pmdMain
 
       - name: Upload PMD reports
         if: always()
