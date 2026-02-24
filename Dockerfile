@@ -1,13 +1,13 @@
 FROM docker.io/library/eclipse-temurin:21-jdk-alpine AS builder
 
-WORKDIR /src/advshop
+WORKDIR /src/eshop
 COPY . .
 RUN ./gradlew clean bootjar
 
 FROM docker.io/library/eclipse-temurin:21-jdk-alpine AS runner
 
 ARG USER_NAME=advshop
-ARG USER_ID=1000
+ARG USER_UID=1000
 ARG USER_GID=${USER_ID}
 
 RUN addgroup -g ${USER_GID} ${USER_NAME} \
@@ -20,4 +20,4 @@ COPY --from=builder --chown=${USER_UID}:${USER_GID} /src/eshop/build/libs/*.jar 
 EXPOSE 8080
 
 ENTRYPOINT ["java"]
-CMD ["-jar", "app,jar"]
+CMD ["-jar", "app.jar"]
