@@ -9,9 +9,13 @@ import java.util.List;
 
 @Repository
 public class ProductRepository {
-    private List<Product> productData = new ArrayList<>();
+    private List<Product> productData;
 
-    public Product create(Product product){
+    public ProductRepository() {
+        this.productData = new ArrayList<>();
+    }
+
+    public Product create(final Product product){
         productData.add(product);
         return product;
     }
@@ -20,7 +24,7 @@ public class ProductRepository {
         return productData.iterator();
     }
 
-    public Product edit(Product newProduct){
+    public Product edit(final Product newProduct){
         for(int i = 0; i < productData.size(); i++){
             if(productData.get(i).getProductId().equals(newProduct.getProductId())){
                 productData.set(i, newProduct);
@@ -29,16 +33,17 @@ public class ProductRepository {
         return newProduct;
     }
 
-    public Product findById(String productId){
-        for(Product product : productData){
+    public Product findById(final String productId){
+        Product foundProduct = null;
+        for(final Product product : productData){
             if(product.getProductId().equals(productId)){
-                return product;
+                foundProduct = product;
             }
         }
-        return null;
+        return foundProduct;
     }
 
-    public void delete(Product product){
+    public void delete(final Product product){
         productData.remove(product);
     }
 }
