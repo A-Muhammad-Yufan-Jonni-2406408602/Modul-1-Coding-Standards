@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
+@Repository
 public class CarRepository {
 
     static int id = 0;
@@ -13,10 +14,6 @@ public class CarRepository {
     private List<Car> carData = new ArrayList<>();
 
     public Car create(Car car) {
-        if(car.getCarId() == null) {
-            UUID uuid = UUID.randomUUID();
-            car.setCarId(uuid.toString());
-        }
         carData.add(car);
         return car;
     }
@@ -27,7 +24,7 @@ public class CarRepository {
 
     public Car findById(String id) {
         for(Car car : carData){
-            if(car.getCarId() == id) {
+            if(car.getCarId().equals(id)) {
                 return car;
             }
         }
