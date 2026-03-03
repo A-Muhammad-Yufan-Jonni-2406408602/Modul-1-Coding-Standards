@@ -1,7 +1,9 @@
 package id.ac.ui.cs.advprog.eshop.service;
 
 import id.ac.ui.cs.advprog.eshop.model.Product;
+import id.ac.ui.cs.advprog.eshop.repository.InterfaceProductRepo;
 import id.ac.ui.cs.advprog.eshop.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,9 +13,10 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService{
 
-    final private ProductRepository productRepository;
+    final private InterfaceProductRepo productRepository;
 
-    public ProductServiceImpl(final ProductRepository productRepository) {
+    @Autowired
+    public ProductServiceImpl(final InterfaceProductRepo productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -32,8 +35,8 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Product edit(final Product newProduct){
-        productRepository.edit(newProduct);
+    public Product update(String id, final Product newProduct){
+        productRepository.update(id, newProduct);
         return newProduct;
     }
 
@@ -43,7 +46,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public void delete(final Product product){
-        productRepository.delete(product);
+    public void delete(final String id){
+        productRepository.delete(id);
     }
 }
