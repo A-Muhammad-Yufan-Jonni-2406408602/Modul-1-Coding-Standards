@@ -73,7 +73,7 @@ public class ProductRepositoryTest {
 
         product.setProductName("Sampo Oplos");
         product.setProductQuantity(10000);
-        productRepository.edit(product);
+        productRepository.update(product.getProductId(), product);
         Iterator<Product> productIterator = productRepository.findAll();
         Product savedProduct = productIterator.next();
         assertEquals("Sampo Oplos", savedProduct.getProductName());
@@ -95,7 +95,7 @@ public class ProductRepositoryTest {
         newProduct.setProductName("Putih");
         newProduct.setProductQuantity(100);
 
-        productRepository.edit(newProduct);
+        productRepository.update(newProduct.getProductId(), newProduct);
 
         Iterator<Product> productIterator = productRepository.findAll();
         savedProduct = productIterator.next();
@@ -112,7 +112,7 @@ public class ProductRepositoryTest {
         productRepository.create(product);
         Iterator<Product> productIterator = productRepository.findAll();
         assertTrue(productIterator.hasNext());
-        productRepository.delete(product);
+        productRepository.delete(product.getProductId());
         assertFalse(productIterator.hasNext());
     }
 

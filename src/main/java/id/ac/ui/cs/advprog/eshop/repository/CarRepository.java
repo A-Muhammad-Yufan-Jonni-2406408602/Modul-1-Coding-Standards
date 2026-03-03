@@ -1,15 +1,13 @@
 package id.ac.ui.cs.advprog.eshop.repository;
 import id.ac.ui.cs.advprog.eshop.model.Car;
 import org.springframework.stereotype.Repository;
-import java.util.UUID;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
 @Repository
-public class CarRepository implements InterfaceCarRepo{
+public class CarRepository implements InterfaceCarRepo {
 
-    static int id = 0;
 
     private List<Car> carData = new ArrayList<>();
 
@@ -47,5 +45,7 @@ public class CarRepository implements InterfaceCarRepo{
     }
 
     @Override
-    public void delete(String id) {carData.removeIf(car -> car.getCarId().equals(id));}
+    public void delete(String id) {
+        carData.removeIf(car -> car.getCarId().equals(id));
+    }
 }
