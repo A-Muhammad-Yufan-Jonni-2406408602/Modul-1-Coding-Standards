@@ -24,12 +24,13 @@ public class CarRepository implements InterfaceCarRepo {
 
     @Override
     public Car findById(String id) {
-        for(Car car : carData){
+        Car foundCar = null;
+        for(final Car car : carData){
             if(car.getCarId().equals(id)) {
-                return car;
+                foundCar = car;
             }
         }
-        return null;
+        return foundCar;
     }
 
     @Override
