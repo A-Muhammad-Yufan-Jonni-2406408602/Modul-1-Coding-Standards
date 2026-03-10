@@ -9,10 +9,11 @@ import java.util.Map;
 
 @Getter
 public class Payment {
-    String id;
-    String method;
-    String status;
-    Map<String, String> paymentData;
+    private String id;
+    private String method;
+    private String status;
+    private Map<String, String> paymentData;
+    private Order order;
 
     public Payment(String id, String method, Map<String, String> paymentData) {
         this.id = id;
@@ -31,6 +32,14 @@ public class Payment {
         this.setStatus(status);
     }
 
+    public Payment(String id, String method, Map<String, String> paymentData, Order order) {
+        this(id, method, paymentData);
+        if(order == null) {
+            throw new IllegalArgumentException();
+        } else {
+            this.order = order;
+        }
+    }
     public void setStatus(String status) {
         if (PaymentStatus.contains(status)) {
             this.status = status;

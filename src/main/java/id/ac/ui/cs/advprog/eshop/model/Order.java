@@ -11,11 +11,11 @@ import java.util.List;
 @Builder
 @Getter
 public class Order {
-    String id;
-    List<Product> products;
-    long orderTime;
-    String author;
-    String status;
+    private String id;
+    private List<Product> products;
+    private long orderTime;
+    private String author;
+    private String status;
 
     public Order(String id, List<Product> products, long orderTime, String author){
         this.id = id;
