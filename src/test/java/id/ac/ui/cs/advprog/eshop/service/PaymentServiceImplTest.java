@@ -55,20 +55,20 @@ public class PaymentServiceImplTest {
 
     @Test
     void testCreatePayment() {
-        Payment payment = payments.get(1);
+        Payment payment = payments.get(0);
         doReturn(payment).when(paymentRepository).save(payment);
 
-        Payment result = paymentService.createPayment(payment);
+        Payment result = paymentService.createPayment(payment.getMethod(), payment);
         verify(paymentRepository, times(1)).save(payment);
         assertEquals(payment.getId(), result.getId());
     }
 
     @Test
     void testPaymentIfAlreadyExist() {
-        Payment payment = payments.get(1);
+        Payment payment = payments.get(0);
         doReturn(payment).when(paymentRepository).findById(payment.getId());
 
-        assertNull(paymentService.createPayment(payment));
+        assertNull(paymentService.createPayment(payment.getMethod(), payment));
         verify(paymentRepository, times(0)).save(payment);
     }
 
