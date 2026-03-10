@@ -1,4 +1,24 @@
 package id.ac.ui.cs.advprog.eshop.repository;
 
-public class OrderRepositroyImpl {
+import id.ac.ui.cs.advprog.eshop.model.Order;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OrderRepositroyImpl{
+    private List<Order> orders = new ArrayList<>();
+//    @Override
+//    public Order save(Order order) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Order findById(String id) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Order findAllByAuthor(String author) {
+//        return null;
+//    }
 }
