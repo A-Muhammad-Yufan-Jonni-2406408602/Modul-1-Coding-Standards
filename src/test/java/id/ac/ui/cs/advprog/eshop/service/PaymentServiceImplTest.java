@@ -120,4 +120,12 @@ public class PaymentServiceImplTest {
         doReturn(null).when(paymentRepository).findById("Monokotil");
         assertNull(paymentService.findById("Monokotil"));
     }
+
+    @Test
+    void testGetAllPayment() {
+        Payment payment = payments.get(1);
+        doReturn(payments).when(paymentRepository).getAll();
+        List<Payment> results = paymentService.getAll();
+        assertEquals(2, results.size());
+    }
 }
