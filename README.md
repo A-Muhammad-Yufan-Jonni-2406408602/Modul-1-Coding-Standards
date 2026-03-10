@@ -16,6 +16,7 @@ dari sisi secure coding saya menerapkan redirect absolut untuk menghindari masal
 2. Implementasi sudah memenuhi definisi Continuous Integration karena workflow dijalankan secara otomatis setiap kali terjadi push dan pull request. Hal ini memastikan bahwa setiap perubahan kode langsung diuji melalui unit test (`./gradlew test`) dan dianalisis kualitasnya menggunakan PMD (`./gradlew pmdMain`). Selain itu, CI juga melakukan setup environment secara otomatis (Java 21 dan Gradle), sehingga proses build dan testing konsisten dan tidak bergantung pada environment lokal developer.
    Continuous Deployment juga sudah diterapkan melalui integrasi otomatis Koyeb dengan GitHub, sehingga aplikasi dapat langsung dideploy setelah perubahan.
 
+deployment link: https://excess-tern-a-muhammad-yufan-jonni-2406408602-58b6a531.koyeb.app/
 # Refleksi 4
 ## Prinsip yang Diterapkan
 ### 1. Single Responsibility Principle (SRP)
